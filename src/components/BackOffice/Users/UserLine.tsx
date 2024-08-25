@@ -6,6 +6,7 @@ import { DirectusUser } from '../../../@types/user';
 import SlideEditUser from '../SlideOvers/Users/EditUser';
 // import ModalUsers from '../../Modals/ModalEditUsers';
 import { useAppSelector } from '../../../hooks/redux';
+import { UserRole } from '../../../utils/userRoles';
 
 interface Props {
   user: DirectusUser;
@@ -15,19 +16,19 @@ dayjs.extend(localizedFormat); // Activer le plugin localizedFormat
 
 function renderRoles(data: DirectusUser) {
   if (data.status === 'active') {
-    if (data.role === '53de6ec2-6d70-48c8-8532-61f96133f139') {
+    if (data.role === UserRole.Admin) {
       return {
         className: 'bg-purple-50 text-purple-700  ring-purple-700/10',
         text: 'admin',
       };
     }
-    if (data.role === '4a30876c-cea0-455f-92d0-593212918aaf') {
+    if (data.role === UserRole.RefLocal) {
       return {
         className: 'bg-green-50 text-green-700 ring-green-600/20',
         text: 'ref-local',
       };
     }
-    if (data.role === '5754603f-add3-4823-9c77-a2f9789074fc') {
+    if (data.role === UserRole.NewUser) {
       return {
         className: 'bg-yellow-50 text-yellow-700 ring-yellow-600/20',
         text: 'Nouveau·elle - A valider',
