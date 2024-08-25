@@ -16,19 +16,19 @@ dayjs.extend(localizedFormat); // Activer le plugin localizedFormat
 
 function renderRoles(data: DirectusUser) {
   if (data.status === 'active') {
-    if (data.role === UserRole.Admin) {
+    if (data.role === UserRole.getUUID(UserRole.Admin)) {
       return {
         className: 'bg-purple-50 text-purple-700  ring-purple-700/10',
         text: 'admin',
       };
     }
-    if (data.role === UserRole.RefLocal) {
+    if (data.role === UserRole.getUUID(UserRole.RefLocal)) {
       return {
         className: 'bg-green-50 text-green-700 ring-green-600/20',
         text: 'ref-local',
       };
     }
-    if (data.role === UserRole.NewUser) {
+    if (data.role === UserRole.getUUID(UserRole.NewUser)) {
       return {
         className: 'bg-yellow-50 text-yellow-700 ring-yellow-600/20',
         text: 'Nouveau·elle - A valider',

@@ -65,7 +65,7 @@ export default function SlideEditUser({
       const decodedUser = jwt_decode(
         localUser.token.access_token
       ) as UserSession;
-      if (decodedUser.role === UserRole.Admin) {
+      if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
         if (cityId !== undefined) {
           await dispatch(fetchUsers(cityId.id.toString()));
         } else {
@@ -206,7 +206,7 @@ export default function SlideEditUser({
                       .filter(
                         (filteredRole) =>
                           filteredRole.id !==
-                          UserRole.Admin
+                          UserRole.getUUID(UserRole.Admin)
                       )
                       .map((role) => (
                         <option key={role.id} value={role.id}>

@@ -55,16 +55,16 @@ export default function App() {
       const { data } = await axiosInstance.get('/users/me');
 
       // User en attente de validation
-      if (data.data.role === UserRole.NewUser) {
+      if (data.data.role === UserRole.getUUID(UserRole.NewUser)) {
         setIsLoading(false);
         return navigate('/new-user');
       }
       // Users en attente de supression
-      if (data.data.role === UserRole.UserToDelete) {
+      if (data.data.role === UserRole.getUUID(UserRole.UserToDelete)) {
         setIsLoading(false);
         return navigate('/');
       }
-      if (data.data.role === UserRole.Admin) {
+      if (data.data.role === UserRole.getUUID(UserRole.Admin)) {
           dispatch(changeAdmin(true));
       }
       setIsLoading(false);
