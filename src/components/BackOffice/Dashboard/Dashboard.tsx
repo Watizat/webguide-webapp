@@ -57,7 +57,7 @@ const navigation = [
   },
   {
     name: 'Back-end',
-    href: 'https://api.watizat.app',
+    href: import.meta.env.VITE_BACKEND_URL,
     descript: 'Back-end (Directus)',
     target: '_blank',
     icon: CircleStackIcon,
