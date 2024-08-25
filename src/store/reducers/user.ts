@@ -101,7 +101,7 @@ export const askPassword = createAsyncThunk(
   async (email: string) => {
     await axiosInstance.post('/auth/password/request', {
       email,
-      reset_url: 'https://guide.watizat.app/recover-password',
+      reset_url: import.meta.env.VITE_WEB_GUIDE_URL + '/recover-password',
     });
   }
 );
