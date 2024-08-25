@@ -1,6 +1,7 @@
 // userRoles.ts
 import { UserSession } from '../@types/user';
 
+/** Définition des identifiants des roles. Les ID doivent correspondre à la base de données. */
 export enum UserRole {
   Admin = '53de6ec2-6d70-48c8-8532-61f96133f139',
   RefLocal = '4a30876c-cea0-455f-92d0-593212918aaf',

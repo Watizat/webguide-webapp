@@ -12,9 +12,11 @@ export const initialState: CrudState = {
   isSaving: false,
 };
 
+/** Ajoute un organisme et ses enfants (traduction, schedule) dans la base de données */
 export const addOrganism = createAsyncThunk(
   'crud/add-organism',
   async (formData: Inputs) => {
+    /** Transform un objet provenant d'un formulaire en object compatible avec l'API Directus */
     function setData(data: Inputs) {
       return {
         organism: {
@@ -39,14 +41,16 @@ export const addOrganism = createAsyncThunk(
       };
     }
     const data = setData(formData);
+
+    // Formate l'adresse fournit par l'editeur pour obtenir les coordonnées GPS 
     const address = `${data.organism.address} ${data.organism.zipcode} ${data.organism.city}`;
     const geolocResponse = await axios.get(
       `https://api-adresse.data.gouv.fr/search/?q=${address}`
     );
-
     const [longitude, latitude] =
       geolocResponse.data.features[0].geometry.coordinates;
 
+    // Mise en base des données 
     const response = await axiosInstance.post(`/items/organisme`, {
       ...data.organism,
       latitude,
@@ -71,6 +75,10 @@ export const addOrganism = createAsyncThunk(
   }
 );
 
+/** Modifie un contact définit par son ID avec les nouvelles informations prevenant d'un formulaire.
+ * @param {Inputs} formData  - Données du formulaire remplit par l'editeur.
+ * @param {number} contactId - Id du contact à modifer en base de données
+ */
 export const editContact = createAsyncThunk(
   'crud/edit-contact',
   async ({ formData, contactId }: { formData: Inputs; contactId: number }) => {
@@ -80,6 +88,9 @@ export const editContact = createAsyncThunk(
   }
 );
 
+/**
+ * Ajoute un Service, sa traduction et ses horaires en base de données.
+ */
 export const addService = createAsyncThunk(
   'crud/add-service',
   async (formData: Inputs) => {
@@ -117,6 +128,7 @@ export const addService = createAsyncThunk(
   }
 );
 
+/** Modifie un service définit par son ID */
 export const editService = createAsyncThunk(
   'crud/edit-service',
   async ({
@@ -162,6 +174,7 @@ export const editService = createAsyncThunk(
   }
 );
 
+/** Ajoute un contact à un service */
 export const addServiceContact = createAsyncThunk(
   'crud/add-service-contact',
   async (formData: Inputs) => {
@@ -172,6 +185,7 @@ export const addServiceContact = createAsyncThunk(
   }
 );
 
+/** Ajoute un Contact à un Organisme */
 export const addOrganismContact = createAsyncThunk<
   number,
   Inputs,
@@ -184,6 +198,7 @@ export const addOrganismContact = createAsyncThunk<
   return data;
 });
 
+/** Modifie uniquement les informations global d'un organisme en base de donnée */
 export const editOrganismInfos = createAsyncThunk(
   'crud/edit-organism-infos',
   async ({
@@ -208,6 +223,7 @@ export const editOrganismInfos = createAsyncThunk(
   }
 );
 
+/** Modifie les infos d'un organisme mais aussi les traductions et les horaires. */
 export const editOrganismData = createAsyncThunk(
   'crud/edit-organism-data',
   async ({
@@ -247,6 +263,7 @@ export const editOrganismData = createAsyncThunk(
   }
 );
 
+/** Modifie uniquement la visibilité d'un organisme */
 export const editOrganismVisibility = createAsyncThunk(
   'crud/edit-oarganism-visibility',
   async ({

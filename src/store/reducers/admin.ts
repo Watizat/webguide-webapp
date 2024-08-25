@@ -3,7 +3,7 @@ import { Organism, Role, Zone } from '../../@types/organism';
 import { DirectusUser } from '../../@types/user';
 import { axiosInstance } from '../../utils/axios';
 
-// Définir la structure de l'état
+/** Définition de la structure de l'état AdminState.  */
 interface AdminState {
   organisms: Organism[]; // Tableau d'objets Organism
   organism: Organism | null; // Organisme sélectionné actuel ou null
@@ -60,7 +60,10 @@ export const fetchAdminOrganisms = createAsyncThunk(
   }
 );
 
-// Créer une fonction asynchrone pour récupérer les Utilisateurs
+/**
+ * Fonction asynchrone pour récupérer les Utilisateurs (tous les champs sont récupérer). 
+ * @param {string | null} zone - Filtre les utilisateurs d'une seule zone définit par son nom.
+*/
 export const fetchUsers = createAsyncThunk(
   'users/fetch-users',
   async (zone: string | null) => {
@@ -89,6 +92,7 @@ export const fetchUsers = createAsyncThunk(
     return data.data; // Retourner les données récupérées
   }
 );
+
 
 export const setAdminOrganism = createAsyncThunk(
   'admin-organisms/set-organism',
@@ -167,11 +171,13 @@ export const setAdminOrganism = createAsyncThunk(
   }
 );
 
+/** Récupère toutes les zones existantes en base de données, sans filtrage. */
 export const fetchZones = createAsyncThunk('zones', async () => {
   const { data } = await axiosInstance.get<{ data: Zone[] }>('/items/zone');
   return data.data;
 });
 
+/** Récupère tous les rôles existants en base de données, sans filtrage.   */
 export const fetchRoles = createAsyncThunk('roles', async () => {
   const { data } = await axiosInstance.get<{ data: Role[] }>('/roles');
   return data.data;

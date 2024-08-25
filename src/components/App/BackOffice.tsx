@@ -14,6 +14,17 @@ import Sidebar from '../BackOffice/Sidebar/SideBase';
 import Header from '../BackOffice/Header';
 import BackOfficeContext from '../../context/BackOfficeContext';
 
+/**
+ * 
+ * @returns Back office application. This is the view for Watizat members which allow them to edit data.
+ * @property {boolean} isTablet    - Set to true if device is a tablet. Used for responsiveness. 
+ * @property {object} dispatch     - 
+ * @property {object | null} user  - User login informations or null if not logged.
+ * @property {string} pathname     - Current url in web-browser.
+ * @property {number} langue       - Id of the current language. (??)
+ * @property {boolean} isLoading   - Set to true if the state is loaded.
+ * @property {boolean} sidebarOpen - Set to true if the sidebar is open
+ */ 
 export default function App() {
   const isTablet = useMediaQuery({ query: '(min-width: 769px)' });
   const dispatch = useAppDispatch();

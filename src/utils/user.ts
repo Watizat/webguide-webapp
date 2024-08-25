@@ -1,5 +1,6 @@
 import { AuthResponse } from '../@types/user';
 
+/** Retrieve 'user' item from local storage or null if nobody is connected or if user data is corrupted. */
 export const getUserDataFromLocalStorage = () => {
   const userDataStr = localStorage.getItem('user');
   try {
@@ -17,6 +18,7 @@ export const getUserDataFromLocalStorage = () => {
   }
 };
 
+/** Remove 'user' item from local storage. */
 export const removeUserDataFromLocalStorage = () => {
   localStorage.removeItem('user');
 };
