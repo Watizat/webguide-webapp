@@ -58,7 +58,7 @@ export const registerUser = createAsyncThunk(
     try {
       const data = await axiosInstance.post('/users', {
         ...formData,
-        role: UserRole.NewUser,
+        role: UserRole.getUUID(UserRole.NewUser),
       });
       return data.data;
     } catch (err: unknown) {

@@ -51,8 +51,8 @@ export default function LinkSquare({ item }: Props) {
                           item.active === false || // Si l'item est désactivé
                           ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
                             me?.role !==
-                              UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
-                            me?.role !== UserRole.Admin) // ou que l'utilisateur n'est pas admin
+                            UserRole.getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
+                            me?.role !== UserRole.getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
                             ? ' text-watizat-100/40 pointer-events-none'
                             : pathname === item.href
                             ? ' text-white bg-watizat-400/70'
@@ -67,9 +67,9 @@ export default function LinkSquare({ item }: Props) {
                             item.active === false || // Si l'item est désactivé
                             ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
                               me?.role !==
-                                UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
+                              UserRole.getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
                               me?.role !==
-                                UserRole.Admin) // ou que l'utilisateur n'est pas admin
+                              UserRole.getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
                               ? ' text-watizat-100/40 pointer-events-none'
                               : pathname === item.href
                               ? ' text-white '

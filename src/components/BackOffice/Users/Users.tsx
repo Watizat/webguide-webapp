@@ -33,7 +33,7 @@ export default function Users() {
         const decodedUser = jwt_decode(
           localUser.token.access_token
         ) as UserSession;
-        if (decodedUser.role === UserRole.Admin) {
+        if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
           dispatch(changeAdmin(true));
           if (cityId !== undefined) {
             await dispatch(fetchUsers(cityId.id.toString()));
