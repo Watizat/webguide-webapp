@@ -1,13 +1,13 @@
 import { useState, createContext, useContext, useMemo } from 'react';
 
 type ContextType = {
-  // Slide de creation d'organisme dans module Edition
+  /** Slide de creation d'organisme dans module Edition */
   isOpenSlideNewOrga: boolean;
   setIsOpenSlideNewOrga: React.Dispatch<React.SetStateAction<boolean>>;
-  // Slide de filtrages des organismes dans module Edition
+  /** Slide de filtrages des organismes dans module Edition */
   isOpenFiltersOrga: boolean;
   setIsOpenFiltersOrga: React.Dispatch<React.SetStateAction<boolean>>;
-  // Affichage ou masquage des organismes archivés
+  /** Affichage ou masquage des organismes archivés */
   isDisplayArchivedOrga: boolean;
   setIsDisplayArchivedOrga: React.Dispatch<React.SetStateAction<boolean>>;
 };

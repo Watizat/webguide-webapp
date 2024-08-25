@@ -1,3 +1,4 @@
+/** Réprésente un élément de la collection Organisme dans Directus */
 export interface Organism {
   id: number;
   name: string;
@@ -25,6 +26,7 @@ export interface Organism {
   date_updated: Date;
 }
 
+/** Réprésente un élément de la collection Contact dans Directus */
 export interface Contact {
   id: number;
   name: string;
@@ -36,12 +38,14 @@ export interface Contact {
   actualisation: boolean;
 }
 
+/** Réprésente un élément de la collection Organisme Translations dans Directus */
 export interface OrganismTranslation {
   id: number;
   infos_alerte: string | undefined;
   description: string | undefined;
 }
 
+/** Réprésente un élément de la collection Schedule dans Directus */
 export interface Schedule {
   id: number;
   day: number;
@@ -52,6 +56,7 @@ export interface Schedule {
   closed: boolean;
 }
 
+/** Réprésente un élément de la collection Service dans Directus */
 export interface Service {
   contacts: Contact[];
   id: number;
@@ -62,6 +67,7 @@ export interface Service {
   contacts: Contact[];
 }
 
+/** Réprésente un élément de la collection Service Translations dans Directus */
 export interface ServiceTranslation {
   id: number;
   name: string;
@@ -70,12 +76,14 @@ export interface ServiceTranslation {
   description: string | undefined;
 }
 
+/** Réprésente un élément de la collection Categorie dans Directus */
 export interface Categorie {
   id: number;
   tag: string;
   translations: CategorieTranslation[];
 }
 
+/** Réprésente un élément de la collection Categorie Translation dans Directus */
 export interface CategorieTranslation {
   id: number;
   name: string;
@@ -84,6 +92,7 @@ export interface CategorieTranslation {
   langue_id: number;
 }
 
+/** Réprésente un élément de la collection User dans Directus (collection système) */
 export interface User {
   id: number;
   firstname: string;
@@ -97,6 +106,7 @@ export interface User {
   zone: Zone;
 }
 
+/** Réprésente un élément de la collection Zone dans Directus */
 export interface Zone {
   id: number;
   name: string;
@@ -105,11 +115,13 @@ export interface Zone {
   };
 }
 
+/** Réprésente un élément de la collection Role dans Directus (collection système) */
 export interface Role {
   id: string;
   name: string;
 }
 
+/** Réprésente un élément de la collection Day translation dans Directus */
 export interface Days {
   numberday: number;
   name: string;

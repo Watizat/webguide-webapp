@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ProgressiveImage from 'react-progressive-graceful-image';
 
+/** Screen to display when the device is smartphone. To little screen are not supported for edition. */
 export default function NoMobile() {
   return (
     <main className="z-50 flex flex-col items-center justify-center h-full max-h-full">

@@ -11,13 +11,13 @@ import BackColor from '../../Container/BackColor';
 
 const navigation = [
   {
-    name: 'Edition',
-    href: '/admin/edition',
-    descript: 'Edition des données',
-    icon: PencilSquareIcon,
-    active: true,
-    devOnly: false,
-    refLocalOnly: false,
+    name: 'Edition', // Name displayed on screen
+    href: '/admin/edition', // url ref for redirection
+    descript: 'Edition des données', // Little description displayed under name
+    icon: PencilSquareIcon, // Icon to illustrate main feature
+    active: true, // Is the button should be activate. Typically no, if the features is not already implemented
+    devOnly: false, // Is the feature is only accessible to developers (aka admin)
+    refLocalOnly: false, // Is the feature is only accessible to local referent
   },
   {
     name: 'Traduction',
@@ -67,6 +67,10 @@ const navigation = [
   },
 ];
 
+/** 
+ * Dashboard is the homepage of the backoffice. It is the first screen shows by the back office.
+ * It diplays buttons to navigate to main features of the backoffice.
+ */
 export default function Dashboard() {
   return (
     <BackColor>

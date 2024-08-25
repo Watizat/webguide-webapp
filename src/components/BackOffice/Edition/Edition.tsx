@@ -6,6 +6,9 @@ import Sidelist from './SideList';
 import DataPanel from './DataPanel/DataPanel';
 import { useAppContext } from '../../../context/BackOfficeContext';
 
+/** Créer l'ecran d'edition du backoffice.
+ *  Il doit lister les organismes de la base de données pour un zone donnée.
+ */
 export default function Edition() {
   const dispatch = useAppDispatch();
   const city = useAppSelector((state) => state.user.city as string);

@@ -1,6 +1,6 @@
 import { Inputs } from '../../@types/formInputs';
 
-// Fonction permettant de mettre en forme les données d'horaires et return un tableau d'objets horaire
+/** Fonction permettant de mettre en forme les données d'horaires et return un tableau d'objets horaire */
 export function scheduleFormat(data: Inputs) {
   const myArray = [];
   // eslint-disable-next-line no-plusplus
@@ -25,7 +25,7 @@ export function scheduleFormat(data: Inputs) {
   return myArray;
 }
 
-// Fonction permettant de vérifier que le format des horaires correspond à ce qui est attendu par le serveur
+/** Fonction permettant de vérifier que le format des horaires correspond à ce qui est attendu par le serveur */
 export const validateScheduleFormat = (value: string) => {
   // Si la valeur est vide, la validation réussit
   if (!value) {
@@ -37,7 +37,7 @@ export const validateScheduleFormat = (value: string) => {
   return schedulePattern.test(value) || false;
 };
 
-// Fonction permettant de transformer une string en slug en retirant les accents et en remplaçant les espaces par des tirets
+/** Fonction permettant de transformer une string en slug en retirant les accents et en remplaçant les espaces par des tirets */
 export function createSlug(inputString: string) {
   const slug = inputString
     .normalize('NFD')
@@ -47,6 +47,9 @@ export function createSlug(inputString: string) {
   return slug;
 }
 
+/** Fonction de validation d'une adresse email.
+ * @return True, si l'email respecte le format d'une addresse email
+ */
 export const validateEmail = (value: string) => {
   // Si la valeur est vide, la validation réussit
   if (!value) {
@@ -57,7 +60,7 @@ export const validateEmail = (value: string) => {
   return emailPattern.test(value) || `Cette adresse email n'est pas valide`;
 };
 
-// Fonction de validation pour un numéro de téléphone de 10 chiffres
+/** Fonction de validation pour un numéro de téléphone de 10 chiffres */
 export const validatePhoneNumber = (value: string) => {
   // Si la valeur est vide, la validation échoue
   if (!value) {
