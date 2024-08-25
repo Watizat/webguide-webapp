@@ -18,10 +18,15 @@ Avant d'installer et lancer le projet, il faut le configurer.
 
 Copier et renommer .env.exemple en .env à la racine du projet et définir les variables d'environnement nécessaire.
 
-| Nom de variable    | Requise | Valeur pour dev       | description                                                                 |
-| :----------------- | :-----: | :-------------------- | :-------------------------------------------------------------------------- |
-| VITE_WEB_GUIDE_URL |   [x]   | http://localhost:5173 | Url public du site (sert de reference pour des lien hypertext dans l'appli) |
-| VITE_BACKEND_URL   |   [x]   | http://localhost:8055 | Url d'accès à la base de données. Définit par le projet Watizat/directus    |
+| Nom de variable            |      Requise       | Valeur pour dev       | description                                                                                 |
+| :------------------------- | :----------------: | :-------------------- | :------------------------------------------------------------------------------------------ |
+| VITE_WEB_GUIDE_URL         | :white_check_mark: | http://localhost:5173 | Url public du site (sert de reference pour des lien hypertext dans l'appli)                 |
+| VITE_BACKEND_URL           | :white_check_mark: | http://localhost:8055 | Url d'accès à la base de données. Définit par le projet Watizat/directus                    |
+| VITE_ROLE_UUID_ADMIN       | :white_check_mark: | non prédictible       | UUID du role 'Watizat - admin' définit par l'instance directus d'url VITE_BACKEND_URL       |
+| VITE_ROLE_UUID_REF_LOCAL   | :white_check_mark: | non prédictible       | UUID du role 'Watizat - Ref Local' définit par l'instance directus d'url VITE_BACKEND_URL   |
+| VITE_ROLE_UUID_EDITEUR     | :white_check_mark: | non prédictible       | UUID du role 'Watizat - Editeur.ice' définit par l'instance directus d'url VITE_BACKEND_URL |
+| VITE_ROLE_UUID_NOUVEAU     | :white_check_mark: | non prédictible       | UUID du role 'Watizat - Nouveau.lle' définit par l'instance directus d'url VITE_BACKEND_URL |
+| VITE_ROLE_UUID_A_SUPPRIMER | :white_check_mark: | non prédictible       | UUID du role 'Watizat - A Supprimer' définit par l'instance directus d'url VITE_BACKEND_URL |
 
 note: Les variables d'environnement sont passés au site via le package Vite. Consulter [la documentation de Vite](https://vitejs.dev/guide/env-and-mode) Pour plus d'informations.
 
