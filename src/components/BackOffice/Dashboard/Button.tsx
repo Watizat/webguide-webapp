@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../utils/axios';
 import { useAppDispatch } from '../../../hooks/redux';
 import { DirectusUser } from '../../../@types/user';
+import { UserRole } from '../../../utils/userRoles';
 
 interface Props {
   item: {
@@ -45,8 +46,8 @@ export default function Button({ item }: Props) {
         className={`flex flex-col items-center justify-center m-auto text-center divide-y divide-gray-200 shadow h-52 bg-white/40 rounded-xl aspect-square select-none  ${
           item.active === false || // Si l'item est désactivé
           ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-            me?.role !== '4a30876c-cea0-455f-92d0-593212918aaf' && // et que l'utilisateur n'est pas ref-local
-            me?.role !== '53de6ec2-6d70-48c8-8532-61f96133f139') // o
+            me?.role !== UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
+            me?.role !== UserRole.Admin) // o
             ? 'pointer-events-none'
             : 'hover:shadow-md hover:shadow-watizat-200 group hover:bg-white/60'
         }`}
@@ -56,8 +57,8 @@ export default function Button({ item }: Props) {
             className={`flex items-center justify-center w-20 h-auto p-5 overflow-hidden rounded-full aspect-square ${
               item.active === false || // Si l'item est désactivé
               ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-                me?.role !== '4a30876c-cea0-455f-92d0-593212918aaf' && // et que l'utilisateur n'est pas ref-local
-                me?.role !== '53de6ec2-6d70-48c8-8532-61f96133f139') // o
+                me?.role !== UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
+                me?.role !== UserRole.Admin) // o
                 ? 'text-gray-300'
                 : ' text-indigo-900/70 ring-watizat-200 group-hover:text-watizat-400 '
             }`}
@@ -68,8 +69,8 @@ export default function Button({ item }: Props) {
             className={`mt-6 text-sm font-semibold  ${
               item.active === false || // Si l'item est désactivé
               ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-                me?.role !== '4a30876c-cea0-455f-92d0-593212918aaf' && // et que l'utilisateur n'est pas ref-local
-                me?.role !== '53de6ec2-6d70-48c8-8532-61f96133f139') // o
+                me?.role !== UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
+                me?.role !== UserRole.Admin) // o
                 ? 'text-gray-300'
                 : ' text-indigo-900/70 group-hover:text-watizat-400'
             }`}
@@ -82,8 +83,8 @@ export default function Button({ item }: Props) {
               className={`text-sm ${
                 item.active === false || // Si l'item est désactivé
                 ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-                  me?.role !== '4a30876c-cea0-455f-92d0-593212918aaf' && // et que l'utilisateur n'est pas ref-local
-                  me?.role !== '53de6ec2-6d70-48c8-8532-61f96133f139') // o
+                  me?.role !== UserRole.RefLocal && // et que l'utilisateur n'est pas ref-local
+                  me?.role !== UserRole.Admin) // o
                   ? 'text-gray-300'
                   : ' text-slate-500 '
               }`}

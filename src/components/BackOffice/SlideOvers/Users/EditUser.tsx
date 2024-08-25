@@ -9,6 +9,7 @@ import { editUser } from '../../../../store/reducers/user';
 import { axiosInstance } from '../../../../utils/axios';
 import { getUserDataFromLocalStorage } from '../../../../utils/user';
 import { validateEmail } from '../../../../utils/form/form';
+import { UserRole } from '../../../../utils/userRoles';
 import Slide from '../components/Slide';
 import Header from '../components/Header';
 import Input from '../../components/Input';
@@ -64,7 +65,7 @@ export default function SlideEditUser({
       const decodedUser = jwt_decode(
         localUser.token.access_token
       ) as UserSession;
-      if (decodedUser.role === '53de6ec2-6d70-48c8-8532-61f96133f139') {
+      if (decodedUser.role === UserRole.Admin) {
         if (cityId !== undefined) {
           await dispatch(fetchUsers(cityId.id.toString()));
         } else {
@@ -205,7 +206,7 @@ export default function SlideEditUser({
                       .filter(
                         (filteredRole) =>
                           filteredRole.id !==
-                          '53de6ec2-6d70-48c8-8532-61f96133f139'
+                          UserRole.Admin
                       )
                       .map((role) => (
                         <option key={role.id} value={role.id}>

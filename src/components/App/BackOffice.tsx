@@ -8,6 +8,7 @@ import { fetchRoles, fetchZones } from '../../store/reducers/admin';
 import { fetchCategories, fetchDays } from '../../store/reducers/organisms';
 import { axiosInstance } from '../../utils/axios';
 import { getUserDataFromLocalStorage } from '../../utils/user';
+import { UserRole } from '../../utils/userRoles';
 import { changeAdmin } from '../../store/reducers/user';
 import NoMobile from '../Errors/NoMobile';
 import Sidebar from '../BackOffice/Sidebar/SideBase';
@@ -54,17 +55,17 @@ export default function App() {
       const { data } = await axiosInstance.get('/users/me');
 
       // User en attente de validation
-      if (data.data.role === '5754603f-add3-4823-9c77-a2f9789074fc') {
+      if (data.data.role === UserRole.NewUser) {
         setIsLoading(false);
         return navigate('/new-user');
       }
       // Users en attente de supression
-      if (data.data.role === 'fd46fe69-2a5d-4742-a536-cfad86d3e81f') {
+      if (data.data.role === UserRole.UserToDelete) {
         setIsLoading(false);
         return navigate('/');
       }
-      if (data.data.role === '53de6ec2-6d70-48c8-8532-61f96133f139') {
-        dispatch(changeAdmin(true));
+      if (data.data.role === UserRole.Admin) {
+          dispatch(changeAdmin(true));
       }
       setIsLoading(false);
       return <Navigate to="/admin/dashboard" replace />;
