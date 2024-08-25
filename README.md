@@ -12,6 +12,21 @@ Cet espace correspond à l'interface de consultation et d'administration du guid
 
 Prendre connaissance du [guide de contribution](https://github.com/Watizat/web_app/blob/main/docs/CONTRIBUTING.md)
 
+### Configurer le projet
+
+Avant d'installer et lancer le projet, il faut le configurer.
+
+Copier et renommer .env.exemple en .env à la racine du projet et définir les variables d'environnement nécessaire.
+
+| Nom de variable    | Requise | Valeur pour dev       | description                                                                 |
+| :----------------- | :-----: | :-------------------- | :-------------------------------------------------------------------------- |
+| VITE_WEB_GUIDE_URL |   [x]   | http://localhost:5173 | Url public du site (sert de reference pour des lien hypertext dans l'appli) |
+| VITE_BACKEND_URL   |   [x]   | http://localhost:8055 | Url d'accès à la base de données. Définit par le projet Watizat/directus    |
+
+note: Les variables d'environnement sont passés au site via le package Vite. Consulter [la documentation de Vite](https://vitejs.dev/guide/env-and-mode) Pour plus d'informations.
+
+note: Lors du rajout de variable d'environnement, penser a mettre à jour le fichier src/vite-env.d.ts pour ajouter les nouvelles variables à l'autocomplétion.
+
 ### Installer le projet
 
 - Cloner le repo sur votre poste de travail
