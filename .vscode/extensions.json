@@ -1,0 +1,14 @@
+// Lister les extensions vscode à utiliser pour automatiser certaines tâches sur le projet
+// et que tout le monde travaille de la même manière.
+// Les fichiers de configuration des extensions doivent être partagés.
+{
+    "recommendations": [
+        // Linter / analyseur du code   
+        "dbaeumer.vscode-eslint",
+        // Formattage du code
+        "esbenp.prettier-vscode",
+        // Correcteur orthographique pour les commentaires, la doc, le code...
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-french",
+    ]
+}
