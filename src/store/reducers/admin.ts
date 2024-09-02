@@ -61,9 +61,9 @@ export const fetchAdminOrganisms = createAsyncThunk(
 );
 
 /**
- * Fonction asynchrone pour récupérer les Utilisateurs (tous les champs sont récupérer). 
+ * Fonction asynchrone pour récupérer les Utilisateurs (tous les champs sont récupérer).
  * @param {string | null} zone - Filtre les utilisateurs d'une seule zone définit par son nom.
-*/
+ */
 export const fetchUsers = createAsyncThunk(
   'users/fetch-users',
   async (zone: string | null) => {
@@ -92,7 +92,6 @@ export const fetchUsers = createAsyncThunk(
     return data.data; // Retourner les données récupérées
   }
 );
-
 
 export const setAdminOrganism = createAsyncThunk(
   'admin-organisms/set-organism',

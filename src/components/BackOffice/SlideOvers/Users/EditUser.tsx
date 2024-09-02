@@ -205,8 +205,7 @@ export default function SlideEditUser({
                     roles
                       .filter(
                         (filteredRole) =>
-                          filteredRole.id !==
-                          UserRole.getUUID(UserRole.Admin)
+                          filteredRole.id !== UserRole.getUUID(UserRole.Admin)
                       )
                       .map((role) => (
                         <option key={role.id} value={role.id}>

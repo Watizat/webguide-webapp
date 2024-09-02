@@ -1,12 +1,11 @@
 // userRoles.ts
-import { string } from 'prop-types';
 import { UserSession } from '../@types/user';
 
 /**
  * Liste des roles d'utilisateurs existants.
  *
  * Le namespace UserRole permet d'acceder à des functions utiles sur cet enum.
- * 
+ *
  * note sur l'implémentation: Les enums n'acceptent pas les variables d'environnement. Le namespace est la meilleure solution trouvée pour contourner le problème.
  */
 export enum UserRole {
@@ -49,11 +48,11 @@ export namespace UserRole {
     }
   }
 
- /**
-  * Convertit un uuid en UserRole.
-  * @param {string} uuid - Identifiant unique d'un role 
-  * @returns le UserRole correspondant à un uuid. Si l'uuid ne correspond à rien alors UserRole.NoRole est renvoyé.
-  */
+  /**
+   * Convertit un uuid en UserRole.
+   * @param {string} uuid - Identifiant unique d'un role
+   * @returns le UserRole correspondant à un uuid. Si l'uuid ne correspond à rien alors UserRole.NoRole est renvoyé.
+   */
   export function parse(uuid: string): UserRole {
     switch (uuid) {
       case import.meta.env.VITE_ROLE_UUID_ADMIN:
@@ -78,7 +77,7 @@ export namespace UserRole {
 
   /**
    * Convertit un objet UserSession en UserRole.
-   * @param decodedUser 
+   * @param decodedUser
    * @returns le UserRole correspondant à decodedUser. Si decodedUser ne correspond à rien alors UserRole.NoRole est renvoyé.
    */
   export function parseUserSession(decodedUser: UserSession): UserRole {
