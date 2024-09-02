@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { AuthResponse, UserSession } from '../@types/user';
 import {
   getUserDataFromLocalStorage,
@@ -87,7 +87,7 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(async (config) => {
   const user = getUserDataFromLocalStorage();
   if (user) {
-    const session = jwt_decode<UserSession>(user.token.access_token);
+    const session = jwtDecode <UserSession>(user.token.access_token);
     const updatedConfig = { ...config }; // Crée une copie de l'objet de configuration
     const currentTime = Date.now();
     if (currentTime >= session.exp * 1000) {

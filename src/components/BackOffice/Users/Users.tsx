@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import UserLine from './UserLine';
 import { UserSession } from '../../../@types/user';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
@@ -30,7 +30,7 @@ export default function Users() {
         return;
       }
       try {
-        const decodedUser = jwt_decode(
+        const decodedUser = jwtDecode (
           localUser.token.access_token
         ) as UserSession;
         if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
