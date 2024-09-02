@@ -42,7 +42,7 @@ export const addOrganism = createAsyncThunk(
     }
     const data = setData(formData);
 
-    // Formate l'adresse fournit par l'editeur pour obtenir les coordonnées GPS 
+    // Formate l'adresse fournit par l'editeur pour obtenir les coordonnées GPS
     const address = `${data.organism.address} ${data.organism.zipcode} ${data.organism.city}`;
     const geolocResponse = await axios.get(
       `https://api-adresse.data.gouv.fr/search/?q=${address}`
@@ -50,7 +50,7 @@ export const addOrganism = createAsyncThunk(
     const [longitude, latitude] =
       geolocResponse.data.features[0].geometry.coordinates;
 
-    // Mise en base des données 
+    // Mise en base des données
     const response = await axiosInstance.post(`/items/organisme`, {
       ...data.organism,
       latitude,
@@ -289,7 +289,6 @@ export const editOrganismVisibility = createAsyncThunk(
     await axiosInstance.patch(`/items/organisme/${organismId}`, {
       ...data.organism,
     });
-   
   }
 );
 

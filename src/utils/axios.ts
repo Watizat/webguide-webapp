@@ -31,10 +31,13 @@ const authRefresh: {
 
     // Appel à l'API pour rafraîchir le token
     const refreshPromise = await axios
-      .post<{ data: AuthResponse }>(import.meta.env.VITE_SOME_KEY + '/auth/refresh', {
-        refresh_token: user.token.refresh_token,
-        mode: 'json',
-      })
+      .post<{ data: AuthResponse }>(
+        `${import.meta.env.VITE_SOME_KEY}/auth/refresh`,
+        {
+          refresh_token: user.token.refresh_token,
+          mode: 'json',
+        }
+      )
       .then(({ data: response }) => {
         // Mettre à jour le token d'authentification et la session utilisateur
         const updatedUser = {

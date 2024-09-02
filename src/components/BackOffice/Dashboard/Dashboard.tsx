@@ -67,7 +67,7 @@ const navigation = [
   },
 ];
 
-/** 
+/**
  * Dashboard is the homepage of the backoffice. It is the first screen shows by the back office.
  * It diplays buttons to navigate to main features of the backoffice.
  */
