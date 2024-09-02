@@ -105,13 +105,13 @@ export namespace UserRole {
 //! Pour l'utiliser :
 
 // import React from 'react';
-// import jwt_decode from 'jwt-decode';
+// import { jwtDecode } from 'jwt-decode';
 // import { getUserRole, UserRole } from './userRoles';
 
 // function MyComponent() {
 //*  Supposons que vous avez déjà obtenu l'utilisateur depuis le stockage local
 //   const localUser = getUserDataFromLocalStorage();
-//   const decodedUser = jwt_decode(localUser.token.access_token) as UserSession;
+//   const decodedUser = jwtDecode (localUser.token.access_token) as UserSession;
 //   const userRole = getUserRole(decodedUser);
 
 //   return (

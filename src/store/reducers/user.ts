@@ -1,4 +1,4 @@
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 import {
   createAction,
@@ -132,8 +132,8 @@ export default createReducer(initialState, (builder) => {
     })
     .addCase(login.fulfilled, (state, action) => {
       const { access_token: token } = action.payload;
-      const jwtDecode = jwt_decode<UserSession>(token);
-      state.session = { ...jwtDecode };
+
+      state.session = { ...jwtDecode<UserSession>(token) };
       state.token = { ...action.payload };
       state.error = null;
       state.isLogged = true;
