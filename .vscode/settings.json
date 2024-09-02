@@ -1,4 +1,9 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.lintTask.enable": true,
+  "eslint.lintTask.options": "--ext js,jsx,ts,tsx src/",
   "cSpell.words": [
     "contentcards",
     "l'organisme"
