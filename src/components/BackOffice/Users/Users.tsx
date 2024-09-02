@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 import UserLine from './UserLine';
 import { UserSession } from '../../../@types/user';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
