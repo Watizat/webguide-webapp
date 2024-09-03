@@ -46,7 +46,6 @@ export const changeAdmin = createAction<boolean>('admin/check-admin');
 
 export const changeCity = createAction<string>('city/change-city');
 
-
 export const changeLoginCredentialsField = createAction<{
   field: KeyOfloginCredentials;
   value: string;
