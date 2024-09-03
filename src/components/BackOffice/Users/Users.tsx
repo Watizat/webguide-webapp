@@ -30,7 +30,7 @@ export default function Users() {
         return;
       }
       try {
-        const decodedUser = jwtDecode (
+        const decodedUser = jwtDecode(
           localUser.token.access_token
         ) as UserSession;
         if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
