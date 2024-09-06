@@ -22,7 +22,7 @@ export default function ServiceCard({ service }: Props) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const menuChoices = [
     {
-      title: 'Mofidier service',
+      title: 'Modifier service',
       onClick: () => {
         setIsOpenSlideEditService(true);
       },
