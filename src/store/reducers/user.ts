@@ -19,7 +19,10 @@ import {
 } from '../../utils/user';
 import { UserRole, getUUID } from '../../utils/userRoles';
 
-const timeout = 5 * 1000 * 60;
+// Timeouts in millisecond
+const timeoutInProd = 15 * 60 * 1000; // 15 min
+const timeoutInDev = 60 * 60 * 1000; // 60 min
+const timeout = import.meta.env.PROD === true ? timeoutInProd : timeoutInDev;
 
 const initialState: UserState = {
   loginCredentials: {
