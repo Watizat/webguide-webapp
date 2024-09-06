@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function Select({ children, data, formMethods }: Props) {
-  const { register, errors } = formMethods;
+  const { register } = formMethods;
 
   return (
     <div>

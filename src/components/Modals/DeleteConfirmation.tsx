@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Dialog } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import AlertBase from './components/ModalBase';
+import ModalBase from './components/ModalBase';
 
 interface Props {
   setIsOpenModal: (open: boolean) => void;
@@ -23,7 +23,7 @@ export default function DeleteConfirmation({
   const cancelButtonRef = useRef(null);
 
   return (
-    <AlertBase setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal}>
+    <ModalBase setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal}>
       <div className="sm:flex sm:items-start">
         <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
           <ExclamationTriangleIcon
@@ -60,6 +60,6 @@ export default function DeleteConfirmation({
           {deleteBtnText}
         </button>
       </div>
-    </AlertBase>
+    </ModalBase>
   );
 }

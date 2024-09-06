@@ -4,7 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { ClockIcon } from '@heroicons/react/24/outline';
 import { useAppDispatch } from '../../hooks/redux';
 import { logout } from '../../store/reducers/user';
-import AlertBase from './components/ModalBase';
+import ModalBase from './components/ModalBase';
 
 interface Props {
   setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,7 +37,7 @@ function ModalInactivityDetector({ setIsOpenModal, setAnswerCount }: Props) {
     return <Navigate to="/login" />;
   }
   return (
-    <AlertBase setIsOpenModal={setIsOpenModal} isOpenModal>
+    <ModalBase setIsOpenModal={setIsOpenModal} isOpenModal>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="flex items-center justify-center w-12 h-12 mx-auto bg-green-100 rounded-full">
@@ -74,7 +74,7 @@ function ModalInactivityDetector({ setIsOpenModal, setAnswerCount }: Props) {
           </button>
         </div>
       </form>
-    </AlertBase>
+    </ModalBase>
   );
 }
 

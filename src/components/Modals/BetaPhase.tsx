@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import AlertBase from './components/ModalBase';
+import ModalBase from './components/ModalBase';
 
 export default function BetaPhase() {
   const [isOpenModal, setIsOpenModal] = useState(true);
 
   return (
-    <AlertBase setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal}>
+    <ModalBase setIsOpenModal={setIsOpenModal} isOpenModal={isOpenModal}>
       <div>
         <div className="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full">
           <ExclamationTriangleIcon
@@ -44,6 +44,6 @@ export default function BetaPhase() {
           J&apos;ai compris
         </button>
       </div>
-    </AlertBase>
+    </ModalBase>
   );
 }
