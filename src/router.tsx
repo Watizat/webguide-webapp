@@ -7,6 +7,7 @@ import Profil from './components/BackOffice/Profil';
 import BackApp from './components/App/BackOffice';
 import Dashboard from './components/BackOffice/Dashboard/Dashboard';
 import Edition from './components/BackOffice/Edition/Edition';
+import Translation from './components/BackOffice/Translation/Translation';
 import Users from './components/BackOffice/Users/Users';
 import FrontApp from './components/App/FrontOffice';
 import NotFound from './components/Errors/NotFound';
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
       <Route path="/admin" element={<BackApp />} errorElement={<FrontApp />}>
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/edition" element={<Edition />} />
+        <Route path="/admin/translation" element={<Translation />} />
         <Route path="/admin/users" element={<Users />} />
         <Route path="/admin/profil" element={<Profil />} />
       </Route>

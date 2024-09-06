@@ -63,7 +63,7 @@ export default function Versions({ isOpenModal, setIsOpenModal }: Props) {
       <div className="py-2 sm:flex sm:items-start max-h-[75vh]  m-auto flex flex-col flex-1 mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
         <Dialog.Title
           as="h2"
-          className="flex justify-between flex-1 w-full mb-8 text-3xl font-medium leading-6 text-slate-700/80"
+          className="flex justify-between flex-1 w-full mb-8 text-3xl font-medium leading-6 text-slate-700/80 "
         >
           Quelles nouvelles ?
           <button
@@ -76,7 +76,7 @@ export default function Versions({ isOpenModal, setIsOpenModal }: Props) {
             <XMarkIcon className="w-6 h-6" aria-hidden="true" />
           </button>
         </Dialog.Title>
-        <ul className="flex flex-col gap-y-6 overflow-auto flex-1 w-full">
+        <ul className="flex flex-col flex-1 w-full overflow-auto gap-y-6">
           {versions.map((version) => (
             <li key={version.version} className="flex flex-col ">
               <div className="text-xl font-semibold text-slate-600">

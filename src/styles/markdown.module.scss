@@ -1,27 +1,16 @@
 .markdown {
   h2 {
-    @apply text-3xl;
-    @apply text-red-500
+    @apply text-3xl text-red-500;
   }
 
   h3 {
-    @apply text-lg;
-    @apply font-medium;
-    @apply mt-2;
-    @apply text-slate-900;
+    @apply text-lg font-medium mt-2  text-slate-900;
   }
 
   h4 {
-    @apply text-base;
-    @apply font-medium;
-    @apply text-slate-900;
-    @apply mt-2;
-    @apply mb-0.5;
-    @apply ml-3;
+    @apply text-base font-medium text-slate-900 mt-2 mb-0.5 ml-3;
   }
   li {
-    @apply list-disc;
-    @apply ml-3;
-    @apply text-gray-700;
+    @apply list-disc ml-3 text-gray-700 text-sm;
   }
 }

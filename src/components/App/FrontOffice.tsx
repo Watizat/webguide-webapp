@@ -31,7 +31,10 @@ export default function FrontApp() {
   }, [dispatch, langue]);
 
   return (
-    <main className="relative flex flex-col min-h-full overflow-y-hidden md:overflow-auto">
+    <div
+      id="App"
+      className="relative flex flex-col min-h-full overflow-y-hidden md:overflow-auto"
+    >
       {!loading && (
         <>
           <Header />
@@ -39,6 +42,6 @@ export default function FrontApp() {
           {isTablet && <Footer />}
         </>
       )}
-    </main>
+    </div>
   );
 }

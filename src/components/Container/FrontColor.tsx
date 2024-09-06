@@ -4,7 +4,7 @@ interface Props {
 
 export default function FrontColor({ children }: Props) {
   return (
-    <div className="relative">
+    <div id="FrontColor" className="relative">
       <div
         className="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80"
         aria-hidden="true"

@@ -51,9 +51,9 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
       },
       {
         name: 'Traduction',
-        href: '/admin/translate',
+        href: '/admin/translation',
         icon: LanguageIcon,
-        active: false,
+        active: true,
         onclick: () => setSidebarOpen(false),
         devOnly: false,
         refLocalOnly: false,

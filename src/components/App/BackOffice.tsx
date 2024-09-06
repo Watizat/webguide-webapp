@@ -92,13 +92,9 @@ export default function App() {
                 setSidebarOpen={setSidebarOpen}
               />
               <div
-                className={` flex flex-col flex-1  lg:pl-20 ${
-                  pathname !== '/admin/dashboard' && '2xl:pl-72 '
-                } ${
-                  pathname === '/admin/dashboard' ||
-                  pathname === '/admin/profil'
-                    ? 'h-full min-h-full'
-                    : 'h-max min-h-max'
+                id="App"
+                className={` flex flex-col flex-1 lg:pl-20  min-h-[calc(100vh-4rem)] h-[calc(100vh-4rem)] max-h-screen ${
+                  pathname !== '/admin/dashboard' && '2xl:pl-72'
                 }`}
               >
                 <Header setSidebarOpen={setSidebarOpen} />

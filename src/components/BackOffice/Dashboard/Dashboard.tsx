@@ -21,10 +21,10 @@ const navigation = [
   },
   {
     name: 'Traduction',
-    href: '/admin/translate',
+    href: '/admin/translation',
     descript: 'Espace traduction',
     icon: LanguageIcon,
-    active: false,
+    active: true,
     devOnly: false,
     refLocalOnly: false,
   },
