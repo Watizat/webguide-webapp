@@ -19,6 +19,11 @@ export default function SchedulesTable({ data, formMethods }: Props) {
   // eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
   const { register, errors } = formMethods;
 
+  // Créer une copie du tableau avant de trier
+  const orderedSchedules = data.schedules?.map((objet) => ({ ...objet }));
+  // Trier les objets par le jour (day) en ordre croissant
+  orderedSchedules?.sort((a, b) => a.day - b.day);
+
   return (
     <div className="flex flex-col gap-y-1">
       <div className="block text-sm leading-6 text-gray-900 text-centerfont-medium">
@@ -44,10 +49,10 @@ export default function SchedulesTable({ data, formMethods }: Props) {
             </th>
           </tr>
         </thead>
-        {data.schedules ? (
+        {orderedSchedules ? (
           // Si le tableau se génère avec des données à afficher
           <tbody className="gap-2 divide-y divide-gray-100">
-            {data.schedules.map((day) => (
+            {orderedSchedules.map((day) => (
               <tr key={day.day} className=" hover:bg-gray-50/80">
                 <td className="py-2 pl-1.5">
                   <span className="text-sm text-center">

@@ -60,11 +60,6 @@ export default function EditOrgaInfos({
     setIsOpenSlide(false); // Ferme la slide
   };
 
-  // Créer une copie du tableau avant de trier
-  const orderedSchedule = organism.schedules.map((objet) => ({ ...objet }));
-  // Trier les objets par le jour (day) en ordre croissant
-  orderedSchedule.sort((a, b) => a.day - b.day);
-
   return (
     <Slide isOpenSlide={isOpenSlide} setIsOpenSlide={setIsOpenSlide}>
       <form
