@@ -16,9 +16,9 @@ interface Props {
 export default function Card({
   children,
   srMessage,
-  title,
-  address,
-  headCard,
+  title = '',
+  address = '',
+  headCard = false,
   menuChoices,
 }: Props) {
   return (
@@ -63,8 +63,3 @@ export default function Card({
   );
 }
 
-Card.defaultProps = {
-  title: '',
-  address: '',
-  headCard: false,
-};

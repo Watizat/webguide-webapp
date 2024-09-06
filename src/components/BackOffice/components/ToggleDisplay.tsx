@@ -12,9 +12,9 @@ function classNames(...classes: string[]) {
 
 export default function SwitchToogle({
   enabled,
-  setEnabled,
+  setEnabled = () => {},
   title,
-  disable,
+  disable = false,
 }: Props) {
   return (
     <Switch.Group as="div" className="flex items-center select-none">
@@ -52,8 +52,3 @@ export default function SwitchToogle({
     </Switch.Group>
   );
 }
-
-SwitchToogle.defaultProps = {
-  disable: false,
-  setEnabled: () => {},
-};
