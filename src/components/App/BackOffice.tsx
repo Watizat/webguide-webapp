@@ -8,7 +8,7 @@ import { fetchRoles, fetchZones } from '../../store/reducers/admin';
 import { fetchCategories, fetchDays } from '../../store/reducers/organisms';
 import { axiosInstance } from '../../utils/axios';
 import { getUserDataFromLocalStorage } from '../../utils/user';
-import { UserRole } from '../../utils/userRoles';
+import { UserRole, getUUID } from '../../utils/userRoles';
 import { changeAdmin } from '../../store/reducers/user';
 import NoMobile from '../Errors/NoMobile';
 import Sidebar from '../BackOffice/Sidebar/SideBase';
@@ -55,17 +55,17 @@ export default function App() {
       const { data } = await axiosInstance.get('/users/me');
 
       // User en attente de validation
-      if (data.data.role === UserRole.getUUID(UserRole.NewUser)) {
+      if (data.data.role === getUUID(UserRole.NewUser)) {
         setIsLoading(false);
         return navigate('/new-user');
       }
       // Users en attente de supression
-      if (data.data.role === UserRole.getUUID(UserRole.UserToDelete)) {
+      if (data.data.role === getUUID(UserRole.UserToDelete)) {
         setIsLoading(false);
         return navigate('/');
       }
-      if (data.data.role === UserRole.getUUID(UserRole.Admin)) {
-          dispatch(changeAdmin(true));
+      if (data.data.role === getUUID(UserRole.Admin)) {
+        dispatch(changeAdmin(true));
       }
       setIsLoading(false);
       return <Navigate to="/admin/dashboard" replace />;
