@@ -29,7 +29,7 @@ export default function Checkbox({ data, formMethods }: Props) {
           aria-describedby="candidates-description"
           className="sr-only peer"
         />
-        <div className="w-10 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer-checked:after:translate-x-full   after:content-[''] after:absolute after:-top-[2px] after:-start-[4px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-sky-700 after:drop-shadow-xl peer-checked:shadow-xl peer-checked:after:border-gray-200 peer-checked:after:ring-0 "></div>
+        <div className="w-10 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer-checked:after:translate-x-full   after:content-[''] after:absolute after:-top-[2px] after:-start-[4px] after:bg-white after:border-gray-200 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-sky-700 after:drop-shadow-xl peer-checked:shadow-xl peer-checked:after:border-gray-200 peer-checked:after:ring-0 " />
         <span className="ml-5 text-sm font-medium text-gray-500 after:duration-700 after:ease-in-out after:transition-transform">
           {data.description}
         </span>

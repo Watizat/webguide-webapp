@@ -1,11 +1,7 @@
 import { ChangeEvent, useEffect, useState, Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
-import {
-  Bars3Icon,
-  ChevronDownIcon,
-  ArchiveBoxIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { axiosInstance } from '../../utils/axios';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeCity, logout } from '../../store/reducers/user';

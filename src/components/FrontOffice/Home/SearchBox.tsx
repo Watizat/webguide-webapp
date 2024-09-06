@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import Icon from '../../../ui/icon/icon';
 import { useAppSelector } from '../../../hooks/redux';
 import FrontColor from '../../Container/FrontColor';
 
@@ -122,8 +121,8 @@ export default function SearchBox() {
                   {categories.map((categorie) => (
                     <option
                       className="flex"
-                      key={categorie.translations[0].slug}
-                      value={categorie.translations[0].slug}
+                      key={categorie.tag}
+                      value={categorie.tag}
                     >
                       {categorie.translations[0].name}
                     </option>
