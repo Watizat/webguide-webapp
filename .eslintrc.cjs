@@ -56,6 +56,8 @@ module.exports = {
       },
     ],
     'react/jsx-props-no-spreading': 0,
+    'react/jsx-uses-react': 'warn',
+    'react/jsx-uses-vars': 'warn',
     'jsx-a11y/label-has-associated-control': [2, { assert: 'either' }],
     'linebreak-style': 0,
     'no-restricted-imports': 0,
