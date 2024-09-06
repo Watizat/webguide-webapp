@@ -24,80 +24,78 @@ export enum UserRole {
 }
 
 /** Implemente des fonctions pour agir sur l'enum, comme par exemple des conversions. */
-export namespace UserRole {
-  /** Renvoi l'uuid du role passé en parametre. */
-  export function getUUID(role: UserRole): string {
-    switch (role) {
-      case UserRole.Admin:
-        return import.meta.env.VITE_ROLE_UUID_ADMIN;
+/** Renvoi l'uuid du role passé en parametre. */
+export function getUUID(role: UserRole): string {
+  switch (role) {
+    case UserRole.Admin:
+      return import.meta.env.VITE_ROLE_UUID_ADMIN;
 
-      case UserRole.RefLocal:
-        return import.meta.env.VITE_ROLE_UUID_REF_LOCAL;
+    case UserRole.RefLocal:
+      return import.meta.env.VITE_ROLE_UUID_REF_LOCAL;
 
-      case UserRole.Edition:
-        return import.meta.env.VITE_ROLE_UUID_EDITEUR;
+    case UserRole.Edition:
+      return import.meta.env.VITE_ROLE_UUID_EDITEUR;
 
-      case UserRole.NewUser:
-        return import.meta.env.VITE_ROLE_UUID_NOUVEAU;
+    case UserRole.NewUser:
+      return import.meta.env.VITE_ROLE_UUID_NOUVEAU;
 
-      case UserRole.UserToDelete:
-        return import.meta.env.VITE_ROLE_UUID_A_SUPPRIMER;
+    case UserRole.UserToDelete:
+      return import.meta.env.VITE_ROLE_UUID_A_SUPPRIMER;
 
-      case UserRole.NoRole:
-        return 'No Role - Error';
-    }
+    default:
+      return 'No Role - Error';
   }
+}
 
-  /**
-   * Convertit un uuid en UserRole.
-   * @param {string} uuid - Identifiant unique d'un role
-   * @returns le UserRole correspondant à un uuid. Si l'uuid ne correspond à rien alors UserRole.NoRole est renvoyé.
-   */
-  export function parse(uuid: string): UserRole {
-    switch (uuid) {
-      case import.meta.env.VITE_ROLE_UUID_ADMIN:
-        return UserRole.Admin;
-
-      case import.meta.env.VITE_ROLE_UUID_REF_LOCAL:
-        return UserRole.RefLocal;
-
-      case import.meta.env.VITE_ROLE_UUID_EDITEUR:
-        return UserRole.Edition;
-
-      case import.meta.env.VITE_ROLE_UUID_NOUVEAU:
-        return UserRole.NewUser;
-
-      case import.meta.env.VITE_ROLE_UUID_A_SUPPRIMER:
-        return UserRole.UserToDelete;
-
-      default:
-        return UserRole.NoRole;
-    }
-  }
-
-  /**
-   * Convertit un objet UserSession en UserRole.
-   * @param decodedUser
-   * @returns le UserRole correspondant à decodedUser. Si decodedUser ne correspond à rien alors UserRole.NoRole est renvoyé.
-   */
-  export function parseUserSession(decodedUser: UserSession): UserRole {
-    if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
+/**
+ * Convertit un uuid en UserRole.
+ * @param {string} uuid - Identifiant unique d'un role
+ * @returns le UserRole correspondant à un uuid. Si l'uuid ne correspond à rien alors UserRole.NoRole est renvoyé.
+ */
+export function parse(uuid: string): UserRole {
+  switch (uuid) {
+    case import.meta.env.VITE_ROLE_UUID_ADMIN:
       return UserRole.Admin;
-    }
-    if (decodedUser.role === UserRole.getUUID(UserRole.RefLocal)) {
+
+    case import.meta.env.VITE_ROLE_UUID_REF_LOCAL:
       return UserRole.RefLocal;
-    }
-    if (decodedUser.role === UserRole.getUUID(UserRole.Edition)) {
+
+    case import.meta.env.VITE_ROLE_UUID_EDITEUR:
       return UserRole.Edition;
-    }
-    if (decodedUser.role === UserRole.getUUID(UserRole.NewUser)) {
+
+    case import.meta.env.VITE_ROLE_UUID_NOUVEAU:
       return UserRole.NewUser;
-    }
-    if (decodedUser.role === UserRole.getUUID(UserRole.UserToDelete)) {
+
+    case import.meta.env.VITE_ROLE_UUID_A_SUPPRIMER:
       return UserRole.UserToDelete;
-    }
-    return UserRole.NoRole;
+
+    default:
+      return UserRole.NoRole;
   }
+}
+
+/**
+ * Convertit un objet UserSession en UserRole.
+ * @param decodedUser
+ * @returns le UserRole correspondant à decodedUser. Si decodedUser ne correspond à rien alors UserRole.NoRole est renvoyé.
+ */
+export function parseUserSession(decodedUser: UserSession): UserRole {
+  if (decodedUser.role === getUUID(UserRole.Admin)) {
+    return UserRole.Admin;
+  }
+  if (decodedUser.role === getUUID(UserRole.RefLocal)) {
+    return UserRole.RefLocal;
+  }
+  if (decodedUser.role === getUUID(UserRole.Edition)) {
+    return UserRole.Edition;
+  }
+  if (decodedUser.role === getUUID(UserRole.NewUser)) {
+    return UserRole.NewUser;
+  }
+  if (decodedUser.role === getUUID(UserRole.UserToDelete)) {
+    return UserRole.UserToDelete;
+  }
+  return UserRole.NoRole;
 }
 
 //-------------------------------------------------------------------------------

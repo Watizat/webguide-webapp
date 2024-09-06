@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../utils/axios';
 import { useAppDispatch } from '../../../hooks/redux';
 import { DirectusUser } from '../../../@types/user';
-import { UserRole } from '../../../utils/userRoles';
+import { UserRole, getUUID } from '../../../utils/userRoles';
 
 interface Props {
   item: {
@@ -50,8 +50,8 @@ export default function LinkSquare({ item }: Props) {
                           // eslint-disable-next-line no-nested-ternary
                           item.active === false || // Si l'item est désactivé
                           ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-                            me?.role !== UserRole.getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
-                            me?.role !== UserRole.getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
+                            me?.role !== getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
+                            me?.role !== getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
                             ? ' text-watizat-100/40 pointer-events-none'
                             : pathname === item.href
                             ? ' text-white bg-watizat-400/70'
@@ -65,9 +65,8 @@ export default function LinkSquare({ item }: Props) {
                             // eslint-disable-next-line no-nested-ternary
                             item.active === false || // Si l'item est désactivé
                             ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-                              me?.role !==
-                                UserRole.getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
-                              me?.role !== UserRole.getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
+                              me?.role !== getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
+                              me?.role !== getUUID(UserRole.Admin)) // ou que l'utilisateur n'est pas admin
                               ? ' text-watizat-100/40 pointer-events-none'
                               : pathname === item.href
                               ? ' text-white '

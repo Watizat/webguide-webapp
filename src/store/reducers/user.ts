@@ -17,7 +17,7 @@ import {
   getUserDataFromLocalStorage,
   removeUserDataFromLocalStorage,
 } from '../../utils/user';
-import { UserRole } from '../../utils/userRoles';
+import { UserRole, getUUID } from '../../utils/userRoles';
 
 const timeout = 5 * 1000 * 60;
 
@@ -57,7 +57,7 @@ export const registerUser = createAsyncThunk(
     try {
       const data = await axiosInstance.post('/users', {
         ...formData,
-        role: UserRole.getUUID(UserRole.NewUser),
+        role: getUUID(UserRole.NewUser),
       });
       return data.data;
     } catch (err: unknown) {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../../utils/axios';
 import { useAppDispatch } from '../../../hooks/redux';
 import { DirectusUser } from '../../../@types/user';
-import { UserRole } from '../../../utils/userRoles';
+import { UserRole, getUUID } from '../../../utils/userRoles';
 
 interface Props {
   item: {
@@ -46,8 +46,8 @@ export default function Button({ item }: Props) {
     return (
       item.active === false || // Si l'item est désactivé
       ((item.refLocalOnly || item.devOnly) && // Ou si l'item est refOnly ou devOnly
-        me?.role !== UserRole.getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
-        me?.role !== UserRole.getUUID(UserRole.Admin))
+        me?.role !== getUUID(UserRole.RefLocal) && // et que l'utilisateur n'est pas ref-local
+        me?.role !== getUUID(UserRole.Admin))
     ); // ni admin
   }
 

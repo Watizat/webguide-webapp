@@ -7,7 +7,7 @@ import { fetchUsers } from '../../../store/reducers/admin';
 import { axiosInstance } from '../../../utils/axios';
 import { getUserDataFromLocalStorage } from '../../../utils/user';
 import { changeAdmin } from '../../../store/reducers/user';
-import { UserRole } from '../../../utils/userRoles';
+import { UserRole, getUUID } from '../../../utils/userRoles';
 
 export default function Users() {
   const dispatch = useAppDispatch();
@@ -33,7 +33,7 @@ export default function Users() {
         const decodedUser = jwtDecode(
           localUser.token.access_token
         ) as UserSession;
-        if (decodedUser.role === UserRole.getUUID(UserRole.Admin)) {
+        if (decodedUser.role === getUUID(UserRole.Admin)) {
           dispatch(changeAdmin(true));
           if (cityId !== undefined) {
             await dispatch(fetchUsers(cityId.id.toString()));
