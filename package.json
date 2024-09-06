@@ -16,6 +16,7 @@
 		"@reduxjs/toolkit": "^1.9.5",
 		"@types/react-redux": "^7.1.25",
 		"@vitejs/plugin-react": "^4.0.0",
+		"autosize": "^6.0.1",
 		"axios": "^1.4.0",
 		"classnames": "^2.3.2",
 		"dayjs": "^1.11.9",
