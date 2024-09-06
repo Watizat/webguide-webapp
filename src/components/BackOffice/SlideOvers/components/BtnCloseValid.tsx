@@ -5,7 +5,7 @@ interface Props {
 }
 
 export default function BtnCloseValid({
-  isSaving,
+  isSaving = false,
   handleCloseSlide,
   handleValidation,
 }: Props) {
@@ -28,7 +28,3 @@ export default function BtnCloseValid({
     </div>
   );
 }
-
-BtnCloseValid.defaultProps = {
-  isSaving: false,
-};

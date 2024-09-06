@@ -19,8 +19,8 @@ interface Props {
 export default function ContactCard({
   contact,
   index,
-  serviceContact,
-  oneLine,
+  serviceContact = false,
+  oneLine = false,
 }: Props) {
   const [isOpenSlide, setIsOpenSlide] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -123,8 +123,3 @@ export default function ContactCard({
     </>
   );
 }
-
-ContactCard.defaultProps = {
-  serviceContact: false,
-  oneLine: false,
-};
