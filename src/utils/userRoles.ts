@@ -15,6 +15,8 @@ export enum UserRole {
   RefLocal,
   /** Editeur.ice : Doit pouvoir creer et modifier des donnes local à une branche */
   Edition,
+  /** Traducteur.ice : Doit pouvoir creer et modifier les traductions des donnes local à une branche */
+  Traduction,
   /** Nouveau.lle : En attente d'acceptation d'un référent ou d'un admin. Droit de lecture uniquement. */
   NewUser,
   /** Supprimé.e : En attente de suppression de la base. Plus aucun droit d'accès. */
@@ -35,6 +37,9 @@ export function getUUID(role: UserRole): string {
 
     case UserRole.Edition:
       return import.meta.env.VITE_ROLE_UUID_EDITEUR;
+
+    case UserRole.Traduction:
+      return import.meta.env.VITE_ROLE_UUID_TRADUCTEUR;
 
     case UserRole.NewUser:
       return import.meta.env.VITE_ROLE_UUID_NOUVEAU;
@@ -63,6 +68,9 @@ export function parse(uuid: string): UserRole {
     case import.meta.env.VITE_ROLE_UUID_EDITEUR:
       return UserRole.Edition;
 
+    case import.meta.env.VITE_ROLE_UUID_TRADUCTEUR:
+      return UserRole.Edition;
+
     case import.meta.env.VITE_ROLE_UUID_NOUVEAU:
       return UserRole.NewUser;
 
@@ -88,6 +96,9 @@ export function parseUserSession(decodedUser: UserSession): UserRole {
   }
   if (decodedUser.role === getUUID(UserRole.Edition)) {
     return UserRole.Edition;
+  }
+  if (decodedUser.role === getUUID(UserRole.Traduction)) {
+    return UserRole.Traduction;
   }
   if (decodedUser.role === getUUID(UserRole.NewUser)) {
     return UserRole.NewUser;
