@@ -28,6 +28,18 @@ function renderRoles(data: DirectusUser) {
         text: 'ref-local',
       };
     }
+    if (data.role === getUUID(UserRole.Edition)) {
+      return {
+        className: 'bg-blue-50 text-blue-700 ring-blue-700/10',
+        text: 'edition',
+      };
+    }
+    if (data.role === getUUID(UserRole.Traduction)) {
+      return {
+        className: 'bg-pink-50 text-pink-700 ring-pink-700/10',
+        text: 'traduction ',
+      };
+    }
     if (data.role === getUUID(UserRole.NewUser)) {
       return {
         className: 'bg-yellow-50 text-yellow-700 ring-yellow-600/20',
@@ -35,8 +47,8 @@ function renderRoles(data: DirectusUser) {
       };
     }
     return {
-      className: 'bg-blue-50 text-blue-700 ring-blue-700/10',
-      text: 'edition',
+      className: 'bg-orange-50 text-orange-700 ring-orange-700/10',
+      text: 'Role inconnu',
     };
   }
   if (data.status === 'suspended') {
