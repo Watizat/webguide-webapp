@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { IoArrowForwardCircleOutline } from 'react-icons/io5';
 import autosize from 'autosize';
 import ChoiceLangTranslation from '../../Modals/ChoiceLangTranslation';
